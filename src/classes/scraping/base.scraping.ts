@@ -1,8 +1,11 @@
-export abstract class BaseScraping{
-  constructor(private readonly url:string)
-  {}
+import * as cheerio from "cheerio";
 
-  abstract parsedData();
-  
-  abstract response();
+export abstract class BaseScraping{
+  protected readonly $: cheerio.CheerioAPI;
+  constructor()
+  {
+    this.$ = cheerio;
+  }
+
+  abstract parsedData(data);
 }

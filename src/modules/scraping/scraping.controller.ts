@@ -14,8 +14,18 @@ export class ScrapingController {
   @UseInterceptors(LoggerInterceptor)
   @UseFilters(ScrapingFailFilter)
   @Get('categories/:categoryId')
-  async scraping(@Param('categoryId',CategoryIdByTypePipe) categoryId:number):Promise<any>
+  async scraping(@Param('categoryId',CategoryIdByTypePipe) serviceName:string):Promise<any>
   {
-    return this.scrapingService.scrapingData();
+    return this.scrapingService.scrapingData(serviceName);
   }
+
+  // @UseInterceptors(LoggerInterceptor)
+  // @UseFilters(ScrapingFailFilter)
+  // @Get('categories/inven')
+  // async scrapingInven():Promise<any>
+  // {
+  //   return this.scrapingService.scrapingData();
+  // }
+
+
 }
