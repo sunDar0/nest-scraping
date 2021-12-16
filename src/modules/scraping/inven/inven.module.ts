@@ -1,7 +1,11 @@
-import { Module } from '@nestjs/common';
+import { HttpModule, Module } from '@nestjs/common';
+import { InvenScraping } from '@parser/inven.scraping';
+import { FileModule } from 'src/modules/file/file.module';
 import { InvenService } from './inven.service';
 
 @Module({
-  providers: [InvenService]
+  imports:[HttpModule, FileModule],
+  providers: [InvenService, InvenScraping],
+  exports:[InvenService]
 })
 export class InvenModule {}
