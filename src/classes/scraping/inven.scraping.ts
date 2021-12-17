@@ -1,21 +1,38 @@
 import { Injectable } from "@nestjs/common";
-import { BaseScraping } from "./base.scraping";
+import { FileService } from "src/modules/file/file.service";
+
+import * as cheerio from "cheerio";
+import { every } from "rxjs/operators";
+import { of } from "rxjs";
 
 @Injectable()
-export class InvenScraping extends BaseScraping{
-  constructor(){
-    super();
+export class InvenScraping {
+  private $;
+  constructor(private readonly fileService: FileService ){
+  
   }
 
-  async parsedData(data):Promise<void>
+  checkLastUpdate()
   {
-    this.$.load(data);
+    let rank = this.fileService.hasFile('scraping/inven.rank', 1);
+    
+    return rank
+  }
+  
+  
+  
+  async parsedData(data): Promise<void>
+  {
+    this.$ = cheerio.load(data);
     const rankElements = this.$('.menuGroup.openCritic > .rankBox > ul > li');
+    console.log(rankElements);
     await this.parsedRankData(rankElements);
     
   }
 
-  private async parsedRankData(baseData): Promise<rankDto[]>{
+
+
+  private async parsedRankData(baseData): Promise<void>{
     let parsed:rankDto[] = [];
     
     baseData.each(async (idx, el)=>{
@@ -24,12 +41,9 @@ export class InvenScraping extends BaseScraping{
       let rankDto:rankDto = {gameName, score};
       parsed.push(rankDto);
     })
-    
-    return parsed;
-
+    await this.fileService.makeFile('scraping/inven.rank', parsed);
   }
 }
-
 
 export interface rankDto
 {

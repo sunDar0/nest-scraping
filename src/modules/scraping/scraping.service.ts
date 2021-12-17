@@ -1,27 +1,19 @@
-import { HttpService, Injectable } from '@nestjs/common';
-import * as cheerio from 'cheerio';
-import { intefaceBaseScrapingService, InvenService } from './inven/inven.service';
+import { Injectable, UseFilters } from '@nestjs/common';
 
+import { ScrapingFailFilter } from 'src/filter/scrapling.fail.filter';
+import { BaseScrapingService } from './base.scraping.service';
+import { InvenService } from './inven/inven.service';
 
 
 @Injectable()
-export class ScrapingService {
+export class ScrapingService {  
+  constructor(private readonly invenService:InvenService)
+  { }
 
-  
-
-  constructor(
-    private readonly invenService : InvenService,
-    // private readonly naverService : NaverService
-    )
-  {
-    
-  }
-
+  @UseFilters(ScrapingFailFilter)
   async scrapingData(serviceType: string):Promise<any>
   {
-    const matchedService: intefaceBaseScrapingService = this[serviceType];
-    
-    
-    matchedService.scraping()
+    const matchedService: BaseScrapingService = this[serviceType];
+    await matchedService.scraping()
   }
 }

@@ -7,6 +7,7 @@ import { InvenModule } from './inven/inven.module';
 @Module({
   imports:[HttpModule, FileModule, InvenModule],
   controllers: [ScrapingController],
-  providers: [ScrapingService]
+  providers: [ScrapingService],
+  exports:[ScrapingService],
 })
 export class ScrapingModule {}
