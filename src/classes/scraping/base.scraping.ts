@@ -1,11 +1,14 @@
 import * as cheerio from "cheerio";
 
+
 export abstract class BaseScraping{
-  protected readonly $: cheerio.CheerioAPI;
+  protected $: cheerio.CheerioAPI;
   constructor()
   {
     this.$ = cheerio;
+    
   }
 
   abstract parsedData(data);
+
 }
