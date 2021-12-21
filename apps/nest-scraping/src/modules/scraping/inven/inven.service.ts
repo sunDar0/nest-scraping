@@ -18,7 +18,8 @@ export class InvenService implements BaseScrapingService
   async scraping()
   {
     if(this.invenScraping.checkLastUpdate()) throw new ScrapingFailException('already update data')
-    const response = await this.httpService.get('https://inven.co.kr').toPromise();
+    const response = await this.httpService.get('https://inven.co.kr').toPromise()
+    
     
     await this.invenScraping.parsedData(response.data);
   }

@@ -6,17 +6,18 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    // "strictNullChecks": true,
     "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
     "paths": {
-      "@scraping/*":["src/modules/scraping/*"],
-      "@parser/*":["src/classes/scraping/*"],
-      "@file/crawling/*":["src/storage/file/crawling/*"],
-      "@file/history/*":["src/storage/file/history/*"],
+      "@scraping/*": [
+        "src/modules/scraping/*"
+      ],
+      "@parser/*": [
+        "src/classes/scraping/*"
+      ]
     }
   }
 }
