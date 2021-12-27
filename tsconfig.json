@@ -12,12 +12,32 @@
     "baseUrl": "./",
     "incremental": true,
     "paths": {
-      "@scraping/*": [
-        "src/modules/scraping/*"
+      "@scraper/constants/*": [
+        "apps/nest-scraping/src/constants/*"
+      ],
+      "@scraper/modules/*": [
+        "apps/nest-scraping/src/modules/*"
+      ],
+      "@scraper/exception/*": [
+        "apps/nest-scraping/src/exception/*"
+      ],
+      "@scraper/interceptor/*": [
+        "apps/nest-scraping/src/interceptor/*"
+      ],
+      "@scraper/filter/*": [
+        "apps/nest-scraping/src/filter/*"
+      ],
+      "@scraper/pipe/*": [
+        "apps/nest-scraping/src/pipe/*"
       ],
       "@parser/*": [
-        "src/classes/scraping/*"
-      ]
+        "apps/nest-scraping/src/classes/scraping/*"
+      ],
+      "@subscriber/*":[
+        "apps/nest-scraping/src/modules/*"
+      ],
+      
+      
     }
   }
 }

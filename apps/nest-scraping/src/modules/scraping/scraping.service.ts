@@ -1,8 +1,8 @@
 import { Injectable, UseFilters } from '@nestjs/common';
 
-import { ScrapingFailFilter } from 'src/filter/scrapling.fail.filter';
-import { BaseScrapingService } from './base.scraping.service';
-import { InvenService } from './inven/inven.service';
+import { ScrapingFailFilter } from '@scraper/filter/scrapling.fail.filter';
+import { BaseScrapingService } from '@scraper/modules/scraping/base.scraping.service';
+import { InvenService } from '@scraper/modules/scraping/inven/inven.service';
 
 
 @Injectable()

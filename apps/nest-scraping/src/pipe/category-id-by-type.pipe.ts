@@ -1,5 +1,5 @@
 import { ArgumentMetadata, Injectable, NotFoundException, PipeTransform } from '@nestjs/common';
-import { DOGDRIP_SERVICE, INVEN_SERVICE, NAVER_SERVICE, ScrapingType } from 'src/constants/service.contants';
+import { DOGDRIP_SERVICE, INVEN_SERVICE, NAVER_SERVICE, ScrapingType } from '@scraper/constants/service.contants';
 
 @Injectable()
 export class CategoryIdByTypePipe implements PipeTransform {

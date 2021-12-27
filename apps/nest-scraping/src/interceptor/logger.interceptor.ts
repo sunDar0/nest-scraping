@@ -1,8 +1,7 @@
 import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
-import { ServerResponse } from 'http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { FileService } from 'src/modules/file/file.service';
+import { FileService } from '@scraper/modules/file/file.service';
 
 
 @Injectable()

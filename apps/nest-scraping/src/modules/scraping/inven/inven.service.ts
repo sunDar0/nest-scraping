@@ -1,7 +1,7 @@
 import { HttpService, Injectable } from '@nestjs/common';
 import { InvenScraping } from '@parser/inven.scraping';
-import { BaseScrapingService } from '@scraping/base.scraping.service';
-import { ScrapingFailException } from 'src/exception/scraping.fail.exception';
+import { BaseScrapingService } from '@scraper/modules/scraping/base.scraping.service';
+import { ScrapingFailException } from '@scraper/exception/scraping.fail.exception';
 
 
 

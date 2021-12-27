@@ -1,8 +1,8 @@
 import { HttpException } from '@nestjs/common';
 import { ArgumentsHost, Catch, ExceptionFilter } from '@nestjs/common';
 import { Response } from 'express';
-import { ScrapingFailException } from 'src/exception/scraping.fail.exception';
-import { FileService } from 'src/modules/file/file.service';
+import { ScrapingFailException } from '@scraper/exception/scraping.fail.exception';
+import { FileService } from '@scraper/modules/file/file.service';
 
 @Catch(ScrapingFailException)
 export class ScrapingFailFilter implements ExceptionFilter {

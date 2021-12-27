@@ -1,8 +1,8 @@
 import { Controller, Get, Param, Query, UseFilters, UseInterceptors } from '@nestjs/common';
-import { LoggerInterceptor } from 'src/interceptor/logger.interceptor';
-import { ScrapingService } from 'src/modules/scraping/scraping.service';
-import { ScrapingFailFilter } from 'src/filter/scrapling.fail.filter';
-import { CategoryIdByTypePipe } from 'src/pipe/category-id-by-type.pipe';
+import { LoggerInterceptor } from '@scraper/interceptor/logger.interceptor';
+import { ScrapingService } from '@scraper/modules/scraping/scraping.service';
+import { ScrapingFailFilter } from '@scraper/filter/scrapling.fail.filter';
+import { CategoryIdByTypePipe } from '@scraper/pipe/category-id-by-type.pipe';
 
 
 @Controller('scraping')

@@ -1,6 +1,6 @@
 import { HttpModule, Module } from '@nestjs/common';
 import { InvenScraping } from '@parser/inven.scraping';
-import { FileModule } from 'src/modules/file/file.module';
+import { FileModule } from '@scraper/modules/file/file.module';
 import { InvenService } from './inven.service';
 
 @Module({

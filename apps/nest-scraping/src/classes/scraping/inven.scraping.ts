@@ -1,9 +1,7 @@
 import { Injectable } from "@nestjs/common";
-import { FileService } from "src/modules/file/file.service";
+import { FileService } from "@scraper/modules/file/file.service";
 
 import * as cheerio from "cheerio";
-import { every } from "rxjs/operators";
-import { of } from "rxjs";
 
 @Injectable()
 export class InvenScraping {
