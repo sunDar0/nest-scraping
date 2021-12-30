@@ -19,18 +19,18 @@ export class InvenScraping {
   
   
   
-  async parsedData(data): Promise<void>
+  async parsedData(data: any): Promise<any>
   {
     this.$ = cheerio.load(data);
     const rankElements = this.$('.menuGroup.openCritic > .rankBox > ul > li');
-    console.log(rankElements);
-    await this.parsedRankData(rankElements);
+    
+    return await this.parsedRankData(rankElements);
     
   }
 
 
 
-  private async parsedRankData(baseData): Promise<void>{
+  private async parsedRankData(baseData): Promise<rankDto[]>{
     let parsed:rankDto[] = [];
     
     baseData.each(async (idx, el)=>{
@@ -40,6 +40,8 @@ export class InvenScraping {
       parsed.push(rankDto);
     })
     await this.fileService.makeFile('scraping/inven.rank', parsed);
+
+    return parsed;
   }
 }
 

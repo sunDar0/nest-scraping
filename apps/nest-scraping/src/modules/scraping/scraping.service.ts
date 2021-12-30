@@ -14,6 +14,7 @@ export class ScrapingService {
   async scrapingData(serviceType: string):Promise<any>
   {
     const matchedService: BaseScrapingService = this[serviceType];
-    await matchedService.scraping()
+
+    return await matchedService.scraping();
   }
 }
