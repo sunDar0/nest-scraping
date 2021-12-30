@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+import { Transport } from '@nestjs/microservices';
 import { ScrapingSubsModule } from './scraping-subs.module';
 
 async function bootstrap() {
@@ -8,7 +8,7 @@ async function bootstrap() {
     {
       transport: Transport.RMQ,
       options: {
-        urls: ['amqps://tyndbbuq:MSlS3dvWzV2XOoDQYp9UkJbnWxYOw8IV@dingo.rmq.cloudamqp.com/tyndbbuq'],
+        urls: [`${process.env.RMQ_URL}`],
         queue: 'main_queue',
         queueOptions: {
           durable: false
@@ -16,6 +16,8 @@ async function bootstrap() {
       },
     }
   );
-  app.listen();
+  await app.listen();
+  console.log('scraping subscriber on!!');
+
 }
 bootstrap();

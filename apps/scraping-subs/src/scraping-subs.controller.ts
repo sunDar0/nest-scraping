@@ -12,8 +12,8 @@ export class ScrapingSubsController {
   }
 
   @EventPattern('rank_created')
-  async testFunc()
+  async rankCreated(rank : any)
   {
-
+    console.log(rank);
   }
 }

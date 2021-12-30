@@ -13,10 +13,11 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
     InvenModule,
     ClientsModule.register([
       {
+        
         name: 'SCRAPING_SERVICE',
         transport: Transport.RMQ,
         options: {
-          urls: ['amqps://tyndbbuq:MSlS3dvWzV2XOoDQYp9UkJbnWxYOw8IV@dingo.rmq.cloudamqp.com/tyndbbuq'],
+          urls: [`${process.env.RMQ_URL}`],
           queue: 'main_queue',
           queueOptions: {
             durable: false
