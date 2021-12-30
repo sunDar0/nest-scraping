@@ -10,6 +10,7 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
+    "strictNullChecks": true,
     "incremental": true,
     "paths": {
       "@scraper/constants/*": [
