@@ -11,9 +11,5 @@ export class ScrapingSubsController {
     return this.scrapingSubsService.getHello();
   }
 
-  @EventPattern('rank_created')
-  async rankCreated(rank : any)
-  {
-    console.log(rank);
-  }
+  
 }
