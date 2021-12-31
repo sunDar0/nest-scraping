@@ -17,11 +17,23 @@ export class ScrapingController {
     )  {}
   
 
+
+  //어플리케이션 시작 시 클라이언트 연결
+  async onApplicationBootstrap()
+  {
+    await this.queueClient.connect().catch(e => console.log(e));
+  }
+
   @UseInterceptors(LoggerInterceptor)
   @Get('categories/:categoryId')
   async scraping(@Param('categoryId',CategoryIdByTypePipe) serviceName:string):Promise<any>
   {
     const scrapingData = await this.scrapingService.scrapingData(serviceName);
+    console.log(scrapingData);
     this.queueClient.emit('rank_created', scrapingData);
   }
+
+  
+
+  
 }
