@@ -8,9 +8,6 @@ export class FileService {
   
   async makeFile(path, data)
   {
-    let date = new Date();
-    
-  
     fs.writeFile(`storage/file/${path}.json`, JSON.stringify(data), (err) =>{
       if(err){
         return console.error(err)

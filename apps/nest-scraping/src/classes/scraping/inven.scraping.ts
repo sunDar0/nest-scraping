@@ -32,11 +32,16 @@ export class InvenScraping {
 
   private async parsedRankData(baseData): Promise<rankDto[]>{
     let parsed:rankDto[] = [];
-    
-    baseData.each(async (idx, el)=>{
+    let created = new Date().toISOString();
+    baseData.each(async (idx:number, el)=>{
       let gameName = String(this.$(el).find('a > span.gameName').text());
       let score = String(this.$(el).find('a > span.invenpoint').text());
-      let rankDto:rankDto = {gameName, score};
+      let rankDto:rankDto = {
+        rank:idx, 
+        gameName, 
+        score, 
+        created
+      };
       parsed.push(rankDto);
     })
     await this.fileService.makeFile('scraping/inven.rank', parsed);
@@ -47,6 +52,8 @@ export class InvenScraping {
 
 export interface rankDto
 {
+  rank : number;
   gameName: string;
   score: string;
+  created: string;
 }

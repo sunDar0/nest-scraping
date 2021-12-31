@@ -1,18 +1,31 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { Document } from "mongoose";
+import { Date, Document } from "mongoose";
 
-export type RankDocument = Rank & Document;
+export type RankDocument = Ranks & Document;
 
-@Schema()
-export class Rank{
+
+class Rank {
     @Prop()
-    id: number;
+    rank: number;
 
     @Prop()
     gameName: string;
 
     @Prop()
     score: string;
+
+    @Prop()
+    created: string;
 }
 
-export const RankSchema = SchemaFactory.createForClass(Rank);
+@Schema({
+    collection: 'ranks',
+})
+export class Ranks {
+    @Prop()
+    created:Date;
+    @Prop()
+    ranks: Rank[]
+}
+
+export const RankSchema = SchemaFactory.createForClass(Ranks);

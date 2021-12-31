@@ -10,7 +10,7 @@ export class SearchController {
     private readonly fileService:FileService
   ){}
   
-  @Get('inven/rank')
+  @Get('inven/current-rank')
   async getInvenRank()
   {
     return await this.fileService.readFile('scraping/inven.rank');
