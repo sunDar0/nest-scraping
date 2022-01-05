@@ -1,17 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Ranks, RankDocument } from './entity/inven.rank.entity';
+import { Ranks, RanksDocument } from './entity/inven.rank.entity';
 
 @Injectable()
 export class InvenService {
-  constructor(@InjectModel(Ranks.name) private readonly rankModel: Model<RankDocument>)
+  constructor(@InjectModel(Ranks.name) private readonly ranksModel: Model<RanksDocument>)
   {}
 
-  async addInvenRank(data:any)
+  async addInvenRank(data: Ranks)
   {
-    console.log(data);
-    return await new this.rankModel(data).save();
+    return await new this.ranksModel({ranks:data}).save();
   }
   
 }

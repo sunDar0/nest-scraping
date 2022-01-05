@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { FileService } from "@scraper/modules/file/file.service";
 
 import * as cheerio from "cheerio";
+import * as dayjs from "dayjs";
 
 @Injectable()
 export class InvenScraping {
@@ -32,15 +33,16 @@ export class InvenScraping {
 
   private async parsedRankData(baseData): Promise<rankDto[]>{
     let parsed:rankDto[] = [];
-    let created = new Date().toISOString();
+    // let createdAt = new Date().toUTCString();
+    let createdAt =  dayjs().format('YYYY-MM-DD HH:mm:ss');
     baseData.each(async (idx:number, el)=>{
       let gameName = String(this.$(el).find('a > span.gameName').text());
       let score = String(this.$(el).find('a > span.invenpoint').text());
       let rankDto:rankDto = {
-        rank:idx, 
+        rank:idx+1, 
         gameName, 
         score, 
-        created
+        createdAt
       };
       parsed.push(rankDto);
     })
@@ -55,5 +57,5 @@ export interface rankDto
   rank : number;
   gameName: string;
   score: string;
-  created: string;
+  createdAt: string;
 }
