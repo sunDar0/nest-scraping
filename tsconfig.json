@@ -6,17 +6,39 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "strictNullChecks": true,
     "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
+    "strictNullChecks": true,
     "incremental": true,
     "paths": {
-      "@scraping/*":["src/modules/scraping/*"],
-      "@parser/*":["src/classes/scraping/*"],
-      "@file/crawling/*":["src/storage/file/crawling/*"],
-      "@file/history/*":["src/storage/file/history/*"],
+      "@scraper/constants/*": [
+        "apps/nest-scraping/src/constants/*"
+      ],
+      "@scraper/modules/*": [
+        "apps/nest-scraping/src/modules/*"
+      ],
+      "@scraper/exception/*": [
+        "apps/nest-scraping/src/exception/*"
+      ],
+      "@scraper/interceptor/*": [
+        "apps/nest-scraping/src/interceptor/*"
+      ],
+      "@scraper/filter/*": [
+        "apps/nest-scraping/src/filter/*"
+      ],
+      "@scraper/pipe/*": [
+        "apps/nest-scraping/src/pipe/*"
+      ],
+      "@parser/*": [
+        "apps/nest-scraping/src/classes/scraping/*"
+      ],
+      "@subscriber/*":[
+        "apps/nest-scraping/src/modules/*"
+      ],
+      
+      
     }
   }
 }

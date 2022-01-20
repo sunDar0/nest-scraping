@@ -1,4 +1,30 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src"
+  "sourceRoot": "apps/nest-scraping/src",
+  "monorepo": true,
+  "root": "apps/nest-scraping",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/nest-scraping/tsconfig.app.json"
+  },
+  "projects": {
+    "nest-scraping": {
+      "type": "application",
+      "root": "apps/nest-scraping",
+      "entryFile": "main",
+      "sourceRoot": "apps/nest-scraping/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/nest-scraping/tsconfig.app.json"
+      }
+    },
+    "scraping-subs": {
+      "type": "application",
+      "root": "apps/scraping-subs",
+      "entryFile": "main",
+      "sourceRoot": "apps/scraping-subs/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/scraping-subs/tsconfig.app.json"
+      }
+    }
+  }
 }
